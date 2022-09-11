@@ -12,14 +12,10 @@ public class CourseService {
 
     @Autowired
     CourseRepository courseRepository;
-    private List<Course> courses = new ArrayList<>(Arrays.asList(
-            new Course("springboot", "Spring boot", "Spring boot description"),
-            new Course("javascript", "Javascript", "Javascript description"),
-            new Course("reactjs", "React JS", "ReactJS Description")
-    ));
-    public List<Course> getAllCourse(){
+
+    public List<Course> getAllCourse(String topicId){
         List<Course> courses =new ArrayList<>();
-        courseRepository.findAll().forEach(courses::add);
+        courseRepository.findByTopicId(topicId).forEach(courses::add);
         return  courses;
     }
 
@@ -31,7 +27,7 @@ public class CourseService {
         courseRepository.save(course);
     }
 
-    public void updateCourse(String id, Course course){
+    public void updateCourse(Course course){
         courseRepository.save(course);
     }
 
