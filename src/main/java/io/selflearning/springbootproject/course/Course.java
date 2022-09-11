@@ -1,20 +1,20 @@
-package io.selflearning.springbootproject.topic;
+package io.selflearning.springbootproject.course;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Topic {
+public class Course {
     @Id
     private String id;
     private String name;
     private String description;
 
-    public Topic(){
+    public Course(){
 
     }
 
-    public Topic(String id, String name, String description) {
+    public Course(String id, String name, String description) {
         super();
         this.id = id;
         this.name = name;
